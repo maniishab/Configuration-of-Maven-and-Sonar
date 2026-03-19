@@ -1,16 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                             http://www.apache.org/xsd/maven-4.0.0.xsd">
-
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
     <artifactId>simple-java-app</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-    <!-- ✅ Add packaging -->
-    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -19,7 +15,7 @@
     </properties>
 
     <dependencies>
-        <!-- JUnit (keep as is) -->
+        <!-- JUnit 5 dependency for testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -30,23 +26,7 @@
 
     <build>
         <plugins>
-
-            <!-- ✅ This plugin MAKES JAR EXECUTABLE -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.3.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <!-- 🔴 IMPORTANT: change this to your main class -->
-                            <mainClass>com.example.Main</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-
-            <!-- Existing plugin -->
+            <!-- Maven Surefire plugin to run unit tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -55,8 +35,6 @@
                     <useModulePath>false</useModulePath>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
-
 </project>
