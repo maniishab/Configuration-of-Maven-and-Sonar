@@ -1,5 +1,4 @@
-FROM nginx:latest
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+COPY target/*.jar app.jar
+ENTRYPOINT ["java","-jar","app.jar"]
