@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+  labels:
+    web: appweb
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      web: appweb
+  template:
+    metadata:
+      name: webapp-pod
+      labels:
+        web: appweb
+    spec:
+      containers:
+        - name: webapp-container
+          image: webapp:latest.devopsproject2.azurecr.io
+          ports:
+            - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-service
+spec:
+  type: ClusterIP
+  selector:
+    web: appweb
+  ports:
+    - port: 80
+      targetPort: 8080
