@@ -15,5 +15,12 @@ pipeline {
             }
         }
 
+        stage("build the image") {
+
+          steps {
+            sh "docker build -t webapp:latest ."
+          }
+        }
+
     }
 }
