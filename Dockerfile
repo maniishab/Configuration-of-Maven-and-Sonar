@@ -1,10 +1,9 @@
-FROM maven:3.9.9-eclipse-temurin-17
+FROM eclipse-temurin:17-jdk
 
-Workdir /app
+WORKDIR /app
 
-COPY /target/*.jar app.jar
+COPY target/*.jar app.jar
 
 EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
-
