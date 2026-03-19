@@ -1,9 +1,5 @@
-FROM eclipse-temurin:17-jdk
+FROM nginx:latest
 
-WORKDIR /app
+EXPOSE 80
 
-COPY target/*.jar app.jar
-
-EXPOSE 8080
-
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["nginx", "-g", "daemon off;"]
