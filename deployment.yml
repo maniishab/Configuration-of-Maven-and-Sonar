@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: webapp-container
-          image: webapp:latest.devopsproject2.azurecr.io
+          image: devopsproject2.azurecr.io/webapp:latest
           ports:
             - containerPort: 8080
 
